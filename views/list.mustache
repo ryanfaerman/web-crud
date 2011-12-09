@@ -1,0 +1,9 @@
+<ul>
+	{{#posts}}
+	<li><a href="{{_id}}{{#slug}}/{{slug}}{{/slug}}">{{title}}</a></li>
+	{{/posts}}
+</ul>
+
+{{^posts}}
+<p>There doesn't seem to be anything here.</p>
+{{/posts}}

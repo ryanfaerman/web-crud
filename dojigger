@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+
+var cli = require('cli'),
+	sys = require('sys'),
+	fs = require('fs'),
+	http = require('http'),
+	dnode = require('dnode'),
+	options = cli.parse();
+
+
+if(cli.args.length) {
+	// We have a file
+	filename = cli.args.shift();
+
+	fs.readFile(filename, 'utf8', function(err, data){
+		d = dnode.connect(5050, function (remote) {
+			remote.create(data, function (id) {
+				console.log(id);
+			});
+		});
+	});
+} else {
+	// STDIN baby
+	cli.withStdin(function(d){
+		console.log(d);
+	});
+}
+
+
+
+

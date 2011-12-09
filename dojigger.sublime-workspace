@@ -1,0 +1,590 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.coffee",
+			"settings":
+			{
+				"buffer_size": 2326,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dnode.js",
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/read.mustache",
+			"settings":
+			{
+				"buffer_size": 60,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/list.mustache",
+			"settings":
+			{
+				"buffer_size": 173,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/layout.mustache",
+			"settings":
+			{
+				"buffer_size": 139,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dojigger",
+			"settings":
+			{
+				"buffer_size": 499,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 83.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"align",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 340.0
+	},
+	"console":
+	{
+		"height": 115.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ryanfaerman/Sites/dojigger/models/post.coffee",
+		"/Users/ryanfaerman/Sites/dojigger/package.json",
+		"/Users/ryanfaerman/Sites/dojigger/dojigger.coffee",
+		"/Users/ryanfaerman/Sites/dojigger/views/list.mustache",
+		"/Users/ryanfaerman/Sites/dojigger/views/layout.mustache",
+		"/Users/ryanfaerman/Sites/dojigger/config.js",
+		"/Users/ryanfaerman/Sites/dojigger/example.md",
+		"/Users/ryanfaerman/Sites/dojigger/app.js",
+		"/Users/ryanfaerman/Sites/dojigger/views/index.jade",
+		"/Users/ryanfaerman/Sites/dojigger/config.json",
+		"/Users/ryanfaerman/Sites/bongo/models/episode.coffee",
+		"/Users/ryanfaerman/Sites/bongo/app.coffee",
+		"/Users/ryanfaerman/Sites/bongo/views/episode.mustache",
+		"/Users/ryanfaerman/Sites/bongo/grid.coffee",
+		"/Users/ryanfaerman/Sites/bongo/node_modules/knox/lib/knox/client.js",
+		"/Users/ryanfaerman/Sites/bongo/node_modules/knox/lib/knox/mime/mime.js",
+		"/Users/ryanfaerman/Desktop/video.html",
+		"/Users/ryanfaerman/Sites/bongo/controllers/episode.coffee",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/manager.mustache",
+		"/Users/ryanfaerman/Sites/bongo/controllers/page.coffee",
+		"/Users/ryanfaerman/Sites/bongo/package.json",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/layout.mustache",
+		"/Users/ryanfaerman/Sites/bongo/views/layout.mustache",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/publish.mustache",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/pages.mustache",
+		"/Users/ryanfaerman/Sites/bongo/models/page.coffee",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/upload.mustache",
+		"/Users/ryanfaerman/Sites/bongo/config.coffee",
+		"/Users/ryanfaerman/Sites/bongo/.hgignore",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/queue.mustache",
+		"/Users/ryanfaerman/Sites/bongo/grid-stream.coffee",
+		"/Users/ryanfaerman/Sites/bongo/public/less/bongo.less",
+		"/Users/ryanfaerman/Sites/bongo/test.coffee",
+		"/Users/ryanfaerman/Sites/bongo/node_modules/express/node_modules/connect/lib/middleware/static.js",
+		"/Users/ryanfaerman/Sites/bongo/grid.js",
+		"/usr/local/etc/nginx/nginx.conf",
+		"/Users/ryanfaerman/Sites/bongo/controllers/settings.coffee",
+		"/Users/ryanfaerman/Sites/bongo/views/admin/settings.mustache",
+		"/Users/ryanfaerman/Sites/bongo/npm-debug.log",
+		"/Users/ryanfaerman/Sites/bongo/models/config.coffee",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel.sublime-",
+		"/Library/Application Support/SIMBL/Plugins/SafariOmnibar.bundle/Contents/Resources/SearchProviders.plist",
+		"/Users/ryanfaerman/Library/Application Support/Sublime Text 2/Packages/Alignment/Base File.sublime-settings",
+		"/Users/ryanfaerman/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/ryanfaerman/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/ryanfaerman/Library/Application Support/Sublime Text 2/Packages/Terminal/Base File.sublime-settings",
+		"/Users/ryanfaerman/Sites/bongo/public/less/patterns.less",
+		"/Users/ryanfaerman/Sites/bongo/views/styles.mustache",
+		"/Users/ryanfaerman/Sites/bongo/node_modules/express/lib/request.js",
+		"/Users/ryanfaerman/Sites/bongo/controllers/auth.coffee",
+		"/Users/ryanfaerman/Sites/bongo/controllers/cron.coffee",
+		"/Users/ryanfaerman/Sites/bongo/views/bare-layout.mustache",
+		"/Users/ryanfaerman/Sites/bongo/views/alerts.mustache",
+		"/Users/ryanfaerman/Sites/bongo/public/javascripts/prettydate.js",
+		"/Users/ryanfaerman/Sites/bongo/controllers/queue.coffee",
+		"/Users/ryanfaerman/Sites/bongo/cron.coffee",
+		"/Users/ryanfaerman/Sites/bongo/queue_settings.js",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/javascripts/less.min.js",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/less/admin.less",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/views/layouts/admin.mustache",
+		"/Users/ryanfaerman/.hgrc",
+		"/Users/ryanfaerman/Sites/bongo/models/settings.coffee",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/config/routes.php",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/coffee/admin.coffee",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/system/stubs/controller.stub",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/controllers/lecturehall.php",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/controllers/admin.php",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/less/transitions.less",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/less/mixins.less",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/config/nmapi-devel/system.php",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/config/newmodel/system.php",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/javascripts/hoverIntent.min.js",
+		"/Users/ryanfaerman/Sites/present/nmapi-devel/assets/less/bootstrap.less",
+		"/etc/apache2/extra/httpd-vhosts.conf",
+		"/Users/ryanfaerman/Sites/mongosql/index.php",
+		"/Users/ryanfaerman/Documents/Full Sail/VFW/vfw-project1/index.html",
+		"/Users/ryanfaerman/Documents/Full Sail/VFW/vfw-project1/additem.html",
+		"/Users/ryanfaerman/Documents/Full Sail/VFW/vfw-project1/assets/js/comics.js",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/migrations/001_foo.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/migrations/022_foo.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/system/db.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/config/system.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/system/floyd.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/controllers/shiggum.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/system/stubs/controller.stub",
+		"/Users/ryanfaerman/Sites/bongo/readme.md",
+		"/Users/ryanfaerman/Sites/bongo/auth.coffee",
+		"/Users/ryanfaerman/Sites/bongo/crypt.coffee",
+		"/Users/ryanfaerman/Sites/bongo/models.coffee",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/migrations.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/migrations/001.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/system/migrations.php",
+		"/Users/ryanfaerman/Sites/present/floyd-devel/views/welcome.mustache",
+		"/Users/ryanfaerman/Sites/notsooriginal/libraries/markdown.php",
+		"/Users/ryanfaerman/Sites/notsooriginal/libraries/mustache.php",
+		"/Users/ryanfaerman/Downloads/Clouds.tmTheme"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"createClient",
+			"query",
+			".btn",
+			".well {",
+			"tabs",
+			".tabs(",
+			"req.flash 'error'",
+			"req.flash('error'",
+			"req.flash",
+			"_",
+			"models",
+			"mongoose-auth",
+			"auth",
+			"md5",
+			"crypt",
+			"sess",
+			"test"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.coffee",
+					"settings":
+					{
+						"buffer_size": 2326,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2171,
+								2171
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/Syntaxes/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1003.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dnode.js",
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/read.mustache",
+					"settings":
+					{
+						"buffer_size": 60,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57,
+								57
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/list.mustache",
+					"settings":
+					{
+						"buffer_size": 173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/layout.mustache",
+					"settings":
+					{
+						"buffer_size": 139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "dojigger",
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 27.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"grid",
+				"grid.coffee"
+			],
+			[
+				"epi",
+				"models/episode.coffee"
+			],
+			[
+				"episode",
+				"views/episode.mustache"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"ep",
+				"views/episode.mustache"
+			],
+			[
+				"lay",
+				"views/layout.mustache"
+			],
+			[
+				"layou",
+				"views/admin/layout.mustache"
+			],
+			[
+				"manager",
+				"views/admin/manager.mustache"
+			],
+			[
+				"app",
+				"app.coffee"
+			],
+			[
+				"layout",
+				"views/admin/layout.mustache"
+			],
+			[
+				"pub",
+				"views/admin/publish.mustache"
+			],
+			[
+				"bongo",
+				"public/less/bongo.less"
+			],
+			[
+				"queue",
+				"views/admin/queue.mustache"
+			],
+			[
+				"gri",
+				"grid.coffee"
+			],
+			[
+				"q",
+				"views/admin/queue.mustache"
+			],
+			[
+				"epis",
+				"views/episode.mustache"
+			],
+			[
+				"aler",
+				"views/alerts.mustache"
+			],
+			[
+				"contr",
+				"system/stubs/controller.stub"
+			],
+			[
+				"flo",
+				"system/floyd.php"
+			],
+			[
+				"db",
+				"system/db.php"
+			],
+			[
+				"contro",
+				"system/stubs/controller.stub"
+			],
+			[
+				"mugration",
+				"system/stubs/migration.stub"
+			],
+			[
+				"paint",
+				"system/paint.php"
+			],
+			[
+				"sys",
+				"config/system.php"
+			],
+			[
+				"stub",
+				"system/stubs/controller.stub"
+			],
+			[
+				"migr",
+				"migrations.php"
+			],
+			[
+				"welc",
+				"views/welcome.mustache"
+			],
+			[
+				"syste",
+				"config/system.php"
+			],
+			[
+				"fl",
+				"system/floyd.php"
+			],
+			[
+				"ind",
+				"config/api.testing.dev/redirects.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 170.0,
+	"status_bar_visible": true
+}

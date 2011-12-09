@@ -1,0 +1,13 @@
+{
+    "name": "dojigger"
+  , "version": "0.0.1"
+  , "private": false
+  , "dependencies": {
+      "express": "2.4.3"
+    , "stache": "0.1.x"
+    , "markdown": "0.3.x"
+    , "mongoose": "2.4.x"
+    , "underscore": "1.2.x"
+    , "props": "0.1.x"
+  }
+}
