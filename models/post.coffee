@@ -6,12 +6,14 @@ ObjectId = Schema.ObjectId
 PostSchema = new Schema
 	title: String
 	content: String
+	slug: String
 	created:
 		type: Date
 		default: Date.now()
 	source: String
-	slug:
+	path: 
 		type: String
-		sparse: true
+		default: '/'
+	
 
 module.exports = mongoose.model 'Post', PostSchema

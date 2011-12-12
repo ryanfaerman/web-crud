@@ -33,74 +33,78 @@ app.dynamicHelpers
 mongoose.connect "mongodb://#{config.host}/#{config.db}"
 PostModel = require './models/post'
 
-app.get '/', (req, res) ->
-  PostModel.find().sort('created', 'descending').execFind (err, docs) ->
-    console.log docs
+# Create
+
+app.post '/foo', (req, res) ->
+  console.log req.body
+  res.send 'foo'
+
+app.post /^(\/.*)/, (req, res) ->
+  console.log req.body  
+  unless req.body.post
+    res.send error: 'no post'
+  else
+    
+    #req.body.post = JSON.parse(req.body.post)
+    defaults = 
+      __content: req.body.post
+      format: 'markdown'
+      path: req.params[0]
+
+    post = _.extend defaults, props(req.body.post)
+  
+    switch post.format
+      when 'markdown', 'md'
+        post.content = markdown.parse post.__content
+        post.slug = markdown.parse post.slug if post.slug
+      else
+        post.content = post.__content
+
+
+    post = _.extend new PostModel, post
+    post.save()
+
+    console.log post
+
+    res.send id: post._id, path: urlify post.path
+
+# Read
+app.get /^(\/.*)/, (req, res) ->
+  console.log req.params[0]
+  PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
+    console.log docs.length
     res.render 'list', locals: posts: docs 
+
+# Update
+
+# Delete
+
+
 
 app.get '/:id/?:slug?', (req, res) ->
   PostModel.findById req.params.id, (err, doc) ->
     console.log doc
     res.render 'read', locals: doc
 
-app.post '/create', (req, res) ->
-  unless req.body.post
-    console.log "empty!"
-  else
-    defaults = 
-      __content: req.body.post
-      format: 'markdown'
+app.post '/:url', (req, res) ->
+  status = create req
+  res.send status
 
-    post = _.extend defaults, props(req.body.post)
+create = (req)->
   
-    post.slug = slugify post.slug
-
-    console.log post
-
-    switch post.format
-      when 'markdown', 'md'
-        post.content = markdown.parse post.__content
-      else
-        post.content = post.__content
-
-    post = _.extend new PostModel, post
-    post.save()
-
-    res.send id: post._id
-
-
 
 slugify = (t) ->
   t = t.replace /[^-a-zA-Z0-9,&\s]+/ig, ''
-  t = t.replace /-/gi, "_"
+  #t = t.replace /-/gi, "_"
   t = t.replace /\s/gi, "-"
   
   return t
+urlify = (t) ->
+  t = t.replace /[^\/-a-zA-Z0-9,&\s]+/ig, ''
+  #t = t.replace /-/gi, "_"
+  t = t.replace /\s/gi, "-"
+  t = escape(t)
 
-
-dnode = require 'dnode'
-server = dnode(create: (text, cb) ->
-  defaults = 
-    __content: text
-    format: 'markdown'
-
-  post = _.extend defaults, props(text)
-
-  post.slug = slugify post.slug
-
-  switch post.format
-    when 'markdown', 'md'
-      post.content = markdown.parse post.__content
-    else
-      post.content = post.__content
-
-  post = _.extend new PostModel, post
-  post.save()
-
-  cb post._id
-
-)
-server.listen 5050
 
 
 
