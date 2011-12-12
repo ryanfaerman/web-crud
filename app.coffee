@@ -109,6 +109,16 @@ app.put /^(\/.*)/, (req, res) ->
         res.send id: post._id, path: urlify post.path
 # Delete
 
+app.del /^(\/.*)/, (req, res) ->
+  req.body.post
+
+  PostMode.count path: req.params[0], (err, count) ->
+    if count > 1
+      res.send error: 'ambiguous, more than one post found'
+    else
+      PostModel.remove path: req.params[0]
+      res.send status: 'done'
+
 
 slugify = (t) ->
   t = t.replace /[^-a-zA-Z0-9,&\s]+/ig, ''

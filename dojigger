@@ -10,24 +10,31 @@ if(cli.args.length) {
 	// We have a file
 	filename = cli.args.shift();
 
-	
-
 	fs.readFile(filename, 'utf8', function(err, data){
 		sendData(data);
-
 	});
+		
 } else {
 	// STDIN baby
-	cli.withStdin(function(d){
+	if(options.del) {
+		console.log("delete!");
+		sendData(" ");
+	} else {
+		cli.withStdin(function(d){
 		sendData(d);
 	});
+	}
+	
 }
 
 var sendData = function(data) {
+	data = data || " " ;
+	console.log("data");
+
 	var method = 'POST';
 	if(options.update) {
 		method = 'PUT';
-	} else if(options.delete) {
+	} else if(options.del) {
 		method = 'DELETE';
 	}
 
