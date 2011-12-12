@@ -72,8 +72,12 @@ app.post /^(\/.*)/, (req, res) ->
 app.get /^(\/.*)/, (req, res) ->
   console.log req.params[0]
   PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
-    console.log docs.length
-    res.render 'list', locals: posts: docs 
+    
+    unless docs.length is 1
+
+      res.render 'list', locals: posts: docs
+    else
+      res.render 'read', locals: docs[0]
 
 # Update
 

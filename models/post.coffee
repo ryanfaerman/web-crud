@@ -11,9 +11,8 @@ PostSchema = new Schema
 		type: Date
 		default: Date.now()
 	source: String
-	path: 
-		type: String
-		default: '/'
+	path: [type: String, default: '/']
+		
 	
 
 module.exports = mongoose.model 'Post', PostSchema
