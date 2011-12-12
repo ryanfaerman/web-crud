@@ -1,4 +1,4 @@
-title: Hello World
+title: Well, Hello World
 slug: welcome to dojigger
 path: /
 

@@ -35,10 +35,6 @@ PostModel = require './models/post'
 
 # Create
 
-app.post '/foo', (req, res) ->
-  console.log req.body
-  res.send 'foo'
-
 app.post /^(\/.*)/, (req, res) ->
   console.log req.body  
   unless req.body.post
@@ -52,11 +48,12 @@ app.post /^(\/.*)/, (req, res) ->
       path: req.params[0]
 
     post = _.extend defaults, props(req.body.post)
+    post.slug = slugify(post.slug) if post.slug
   
     switch post.format
       when 'markdown', 'md'
         post.content = markdown.parse post.__content
-        post.slug = markdown.parse post.slug if post.slug
+        
       else
         post.content = post.__content
 
@@ -69,12 +66,21 @@ app.post /^(\/.*)/, (req, res) ->
     res.send id: post._id, path: urlify post.path
 
 # Read
+
+
+
+app.get '/permalink/:id/?:slug?', (req, res, next) ->
+  PostModel.findById req.params.id, (err, doc) ->
+    unless error
+      res.render 'read', locals: doc
+    else
+      next()
+
 app.get /^(\/.*)/, (req, res) ->
   console.log req.params[0]
   PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
     
     unless docs.length is 1
-
       res.render 'list', locals: posts: docs
     else
       res.render 'read', locals: docs[0]
@@ -104,6 +110,7 @@ slugify = (t) ->
   
   return t
 urlify = (t) ->
+  t = t + "";
   t = t.replace /[^\/-a-zA-Z0-9,&\s]+/ig, ''
   #t = t.replace /-/gi, "_"
   t = t.replace /\s/gi, "-"
