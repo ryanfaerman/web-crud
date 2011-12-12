@@ -34,11 +34,6 @@ mongoose.connect "mongodb://#{config.host}/#{config.db}"
 PostModel = require './models/post'
 
 # Create
-
-app.post '/foo', (req, res) ->
-  console.log req.body
-  res.send 'foo'
-
 app.post /^(\/.*)/, (req, res) ->
   console.log req.body  
   unless req.body.post
