@@ -34,14 +34,11 @@ mongoose.connect "mongodb://#{config.host}/#{config.db}"
 PostModel = require './models/post'
 
 # Create
-
 app.post /^(\/.*)/, (req, res) ->
   console.log req.body  
   unless req.body.post
     res.send error: 'no post'
   else
-    
-    #req.body.post = JSON.parse(req.body.post)
     defaults = 
       __content: req.body.post
       format: 'markdown'
