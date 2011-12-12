@@ -85,19 +85,6 @@ app.get /^(\/.*)/, (req, res) ->
 # Delete
 
 
-
-app.get '/:id/?:slug?', (req, res) ->
-  PostModel.findById req.params.id, (err, doc) ->
-    console.log doc
-    res.render 'read', locals: doc
-
-app.post '/:url', (req, res) ->
-  status = create req
-  res.send status
-
-create = (req)->
-  
-
 slugify = (t) ->
   t = t.replace /[^-a-zA-Z0-9,&\s]+/ig, ''
   #t = t.replace /-/gi, "_"
