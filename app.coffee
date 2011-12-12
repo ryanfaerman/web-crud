@@ -64,8 +64,6 @@ app.post /^(\/.*)/, (req, res) ->
 
 # Read
 
-
-
 app.get '/permalink/:id/?:slug?', (req, res, next) ->
   PostModel.findById req.params.id, (err, doc) ->
     unless error
