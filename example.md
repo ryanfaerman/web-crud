@@ -1,6 +1,6 @@
-title: Well, Hello World
+title: This is a test
 slug: welcome to dojigger
-path: /
+path: /banana
 
 
 Welcome to **dojigger** a stupid simple poster tool without a web-based admin interface because I'm lazy.

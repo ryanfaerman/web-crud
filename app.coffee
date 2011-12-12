@@ -66,7 +66,7 @@ app.post /^(\/.*)/, (req, res) ->
 
 app.get '/permalink/:id/?:slug?', (req, res, next) ->
   PostModel.findById req.params.id, (err, doc) ->
-    unless error
+    unless err
       res.render 'read', locals: doc
     else
       next()
@@ -81,7 +81,32 @@ app.get /^(\/.*)/, (req, res) ->
       res.render 'read', locals: docs[0]
 
 # Update
-
+app.put /^(\/.*)/, (req, res) ->
+  console.log "attempting update"
+  unless req.body.post
+    res.send error: 'no post'
+  else
+    defaults = 
+      __content: req.body.post
+      format: 'markdown'
+      path: req.params[0]
+    
+    post = _.extend defaults, props(req.body.post)
+    post.slug = slugify(post.slug) if post.slug
+  
+    switch post.format
+      when 'markdown', 'md'
+        post.content = markdown.parse post.__content
+        
+      else
+        post.content = post.__content
+    
+    PostModel.count path: post.path, (err, count) ->
+      if count > 1
+        res.send error: 'ambiguous, more than one post found'
+      else
+        PostModel.update path: post.path, post
+        res.send id: post._id, path: urlify post.path
 # Delete
 
 
