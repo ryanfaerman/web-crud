@@ -44,8 +44,6 @@ app.post /^(\/.*)/, (req, res) ->
   unless req.body.post
     res.send error: 'no post'
   else
-    
-    #req.body.post = JSON.parse(req.body.post)
     defaults = 
       __content: req.body.post
       format: 'markdown'
