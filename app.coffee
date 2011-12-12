@@ -82,7 +82,6 @@ app.get /^(\/.*)/, (req, res) ->
 
 # Update
 app.put /^(\/.*)/, (req, res) ->
-  console.log "attempting update"
   unless req.body.post
     res.send error: 'no post'
   else
@@ -100,8 +99,9 @@ app.put /^(\/.*)/, (req, res) ->
         
       else
         post.content = post.__content
-    
+
     PostModel.count path: post.path, (err, count) ->
+      console.log count
       if count > 1
         res.send error: 'ambiguous, more than one post found'
       else
