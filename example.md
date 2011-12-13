@@ -1,6 +1,6 @@
-title: Hello World
+title: My Spoon is Too Big!
 slug: welcome to dojigger
-path: /bigger & better
+path: /banana
 
 
 Welcome to **dojigger** a stupid simple poster tool without a web-based admin interface because I'm lazy.

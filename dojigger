@@ -6,8 +6,6 @@ var cli = require('cli'),
 	http = require('http'),
 	options = cli.parse();
 
-
-
 if(cli.args.length) {
 	// We have a file
 	filename = cli.args.shift();
@@ -26,15 +24,24 @@ if(cli.args.length) {
 }
 
 var sendData = function(data) {
+	var method = 'POST';
+	if(options.update) {
+		method = 'PUT';
+	} else if(options.delete) {
+		method = 'DELETE';
+	}
+
 	var http_options = {
-		host: 'localhost',
-		port: 3000,
-		path: '/',
-		method: 'POST',
+		host: options.site || 'localhost',
+		port: options.port || 3000,
+		path: options.path || '/',
+		method: method,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
 	};
+
+	console.log(http_options);
 
 	var req = http.request(http_options, function(res) {
 		console.log('STATUS: ' + res.statusCode);
