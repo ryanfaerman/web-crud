@@ -105,9 +105,25 @@ app.put /^(\/.*)/, (req, res) ->
       if count > 1
         res.send error: 'ambiguous, more than one post found'
       else
-        PostModel.update path: post.path, post
+        PostModel.update path: post.path, post, (r,d) ->
+          console.log d
         res.send id: post._id, path: urlify post.path
+
 # Delete
+app.del /^(\/.*)/, (req, res) ->
+  console.log req.body
+
+  query = {}
+  if req.body.id then query._id = req.body.id else query.path = req.params[0]
+
+  
+  PostModel.count query, (err, count) ->
+    if count > 1
+      res.send error: 'ambiguous, more than one post found'
+
+    else
+      PostModel.remove query, (r,d) ->
+      res.send status: 'done'
 
 
 slugify = (t) ->

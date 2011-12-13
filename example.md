@@ -1,6 +1,6 @@
-title: My Spoon is Too Big!
+title: Blog Mode!
 slug: welcome to dojigger
-path: /banana
+
 
 
 Welcome to **dojigger** a stupid simple poster tool without a web-based admin interface because I'm lazy.
