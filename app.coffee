@@ -88,7 +88,8 @@ app.put /^(\/.*)/, (req, res) ->
     defaults = 
       __content: req.body.post
       format: 'markdown'
-      path: req.params[0]
+    
+    if req.body.id then defaults.path = req.params[0]
     
     post = _.extend defaults, props(req.body.post)
     post.slug = slugify(post.slug) if post.slug
@@ -99,13 +100,16 @@ app.put /^(\/.*)/, (req, res) ->
         
       else
         post.content = post.__content
+    
+    query = {}
+    if req.body.id then query._id = req.body.id else query.path = req.params[0]
 
-    PostModel.count path: post.path, (err, count) ->
+    PostModel.count query, (err, count) ->
       console.log count
       if count > 1
         res.send error: 'ambiguous, more than one post found'
       else
-        PostModel.update path: post.path, post, (r,d) ->
+        PostModel.update query, post, (r,d) ->
           console.log d
         res.send id: post._id, path: urlify post.path
 

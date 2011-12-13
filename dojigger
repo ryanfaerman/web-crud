@@ -33,14 +33,15 @@ var sendData = function(data) {
 		});
 
 	});
-
+	console.log(cli.args);
+	var _id = options.id || cli.args.shift() || ''
 
 	// write data to request body
-	req.write("post="+encodeURIComponent(data)+"&id="+encodeURIComponent(options.id));
+	req.write("post="+encodeURIComponent(data)+"&id="+encodeURIComponent(_id));
 	req.end();
 }
 
-if(cli.args.length) {
+if(!options.delete && cli.args.length) {
 	// We have a file
 	filename = cli.args.shift();
 
@@ -51,7 +52,7 @@ if(cli.args.length) {
 } else {
 	// STDIN baby
 	if(options.delete) {
-		sendData(options.id);
+		sendData();
 	} else {
 		cli.withStdin(function(d){
 			sendData(d);

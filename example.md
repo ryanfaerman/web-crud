@@ -1,5 +1,4 @@
-title: Blog Mode!
-slug: welcome to dojigger
+title: Banana!
 
 
 
