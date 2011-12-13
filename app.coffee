@@ -64,7 +64,7 @@ app.post /^(\/.*)/, (req, res) ->
 
 # Read
 
-app.get '/permalink/:id/?:slug?', (req, res, next) ->
+app.get '/permalink/:id/:slug?', (req, res, next) ->
   PostModel.findById req.params.id, (err, doc) ->
     unless err
       res.render 'read', locals: doc
@@ -72,7 +72,6 @@ app.get '/permalink/:id/?:slug?', (req, res, next) ->
       next()
 
 app.get /^(\/.*)/, (req, res) ->
-  console.log req.params[0]
   PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
     
     unless docs.length is 1
