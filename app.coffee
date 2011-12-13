@@ -34,29 +34,23 @@ mongoose.connect "mongodb://#{config.host}/#{config.db}"
 PostModel = require './models/post'
 
 # Create
-
-app.post '/foo', (req, res) ->
-  console.log req.body
-  res.send 'foo'
-
 app.post /^(\/.*)/, (req, res) ->
   console.log req.body  
   unless req.body.post
     res.send error: 'no post'
   else
-    
-    #req.body.post = JSON.parse(req.body.post)
     defaults = 
       __content: req.body.post
       format: 'markdown'
       path: req.params[0]
 
     post = _.extend defaults, props(req.body.post)
+    post.slug = slugify(post.slug) if post.slug
   
     switch post.format
       when 'markdown', 'md'
         post.content = markdown.parse post.__content
-        post.slug = markdown.parse post.slug if post.slug
+        
       else
         post.content = post.__content
 
@@ -69,29 +63,71 @@ app.post /^(\/.*)/, (req, res) ->
     res.send id: post._id, path: urlify post.path
 
 # Read
+
+app.get '/permalink/:id/:slug?', (req, res, next) ->
+  PostModel.findById req.params.id, (err, doc) ->
+    unless err
+      res.render 'read', locals: doc
+    else
+      next()
+
 app.get /^(\/.*)/, (req, res) ->
-  console.log req.params[0]
   PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
-    console.log docs.length
-    res.render 'list', locals: posts: docs 
+    
+    unless docs.length is 1
+      res.render 'list', locals: posts: docs
+    else
+      res.render 'read', locals: docs[0]
 
 # Update
+app.put /^(\/.*)/, (req, res) ->
+  unless req.body.post
+    res.send error: 'no post'
+  else
+    defaults = 
+      __content: req.body.post
+      format: 'markdown'
+    
+    if req.body.id then defaults.path = req.params[0]
+    
+    post = _.extend defaults, props(req.body.post)
+    post.slug = slugify(post.slug) if post.slug
+  
+    switch post.format
+      when 'markdown', 'md'
+        post.content = markdown.parse post.__content
+        
+      else
+        post.content = post.__content
+    
+    query = {}
+    if req.body.id then query._id = req.body.id else query.path = req.params[0]
+
+    PostModel.count query, (err, count) ->
+      console.log count
+      if count > 1
+        res.send error: 'ambiguous, more than one post found'
+      else
+        PostModel.update query, post, (r,d) ->
+          console.log d
+        res.send id: post._id, path: urlify post.path
 
 # Delete
+app.del /^(\/.*)/, (req, res) ->
+  console.log req.body
 
+  query = {}
+  if req.body.id then query._id = req.body.id else query.path = req.params[0]
 
-
-app.get '/:id/?:slug?', (req, res) ->
-  PostModel.findById req.params.id, (err, doc) ->
-    console.log doc
-    res.render 'read', locals: doc
-
-app.post '/:url', (req, res) ->
-  status = create req
-  res.send status
-
-create = (req)->
   
+  PostModel.count query, (err, count) ->
+    if count > 1
+      res.send error: 'ambiguous, more than one post found'
+
+    else
+      PostModel.remove query, (r,d) ->
+      res.send status: 'done'
+
 
 slugify = (t) ->
   t = t.replace /[^-a-zA-Z0-9,&\s]+/ig, ''
@@ -100,6 +136,7 @@ slugify = (t) ->
   
   return t
 urlify = (t) ->
+  t = t + "";
   t = t.replace /[^\/-a-zA-Z0-9,&\s]+/ig, ''
   #t = t.replace /-/gi, "_"
   t = t.replace /\s/gi, "-"

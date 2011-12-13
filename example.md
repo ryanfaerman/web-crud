@@ -1,6 +1,5 @@
-title: Hello World
-slug: welcome to dojigger
-path: /bigger & better
+title: Banana!
+
 
 
 Welcome to **dojigger** a stupid simple poster tool without a web-based admin interface because I'm lazy.

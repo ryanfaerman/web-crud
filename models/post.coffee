@@ -11,9 +11,14 @@ PostSchema = new Schema
 		type: Date
 		default: Date.now()
 	source: String
-	path: 
-		type: String
-		default: '/'
-	
+	path: [type: String, default: '/']
+		
+PostSchema.virtual('permalink').get () ->
+	l = "/permalink/#{this._id}"
+	l += "/#{this.slug}" if this.slug
+
+	return l
+
+
 
 module.exports = mongoose.model 'Post', PostSchema

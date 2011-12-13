@@ -6,50 +6,60 @@ var cli = require('cli'),
 	http = require('http'),
 	options = cli.parse();
 
-
-
-if(cli.args.length) {
-	// We have a file
-	filename = cli.args.shift();
-
-	
-
-	fs.readFile(filename, 'utf8', function(err, data){
-		sendData(data);
-
-	});
-} else {
-	// STDIN baby
-	cli.withStdin(function(d){
-		sendData(d);
-	});
-}
-
 var sendData = function(data) {
+	//data = data | "" ;
+
+	var method = 'POST';
+	if(options.update) {
+		method = 'PUT';
+	} else if(options.delete) {
+		method = 'DELETE';
+	}
+
 	var http_options = {
-		host: 'localhost',
-		port: 3000,
-		path: '/',
-		method: 'POST',
+		host: options.site || 'localhost',
+		port: options.port || 3000,
+		path: options.path || '/',
+		method: method,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
 	};
 
 	var req = http.request(http_options, function(res) {
-		console.log('STATUS: ' + res.statusCode);
-		console.log('HEADERS: ' + JSON.stringify(res.headers));
 		res.setEncoding('utf8');
 		res.on('data', function (chunk) {
 			console.log('BODY: ' + chunk);
 		});
+
 	});
+	console.log(cli.args);
+	var _id = options.id || cli.args.shift() || ''
 
 	// write data to request body
-	req.write("post="+encodeURIComponent(data));
+	req.write("post="+encodeURIComponent(data)+"&id="+encodeURIComponent(_id));
 	req.end();
 }
 
+if(!options.delete && cli.args.length) {
+	// We have a file
+	filename = cli.args.shift();
+
+	fs.readFile(filename, 'utf8', function(err, data){
+		sendData(data);
+	});
+		
+} else {
+	// STDIN baby
+	if(options.delete) {
+		sendData();
+	} else {
+		cli.withStdin(function(d){
+			sendData(d);
+		});
+	}
+	
+}
 
 
 
