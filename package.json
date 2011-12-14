@@ -11,4 +11,7 @@
     , "props": "0.1.x"
     , "cli": "0.3.x"
   }
+  ,"scripts": {
+    "start": "supervisor app.coffee"
+  }
 }
