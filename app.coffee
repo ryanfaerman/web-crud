@@ -71,13 +71,15 @@ app.get '/permalink/:id/:slug?', (req, res, next) ->
     else
       next()
 
-app.get /^(\/.*)/, (req, res) ->
+app.get /^(\/.*)/, (req, res, next) ->
   PostModel.find(path: req.params[0]).sort('created', 'descending').execFind (err, docs) ->
-    
-    unless docs.length is 1
-      res.render 'list', locals: posts: docs
+    unless docs.length is 0
+      unless docs.length is 1
+        res.render 'list', locals: posts: docs
+      else
+        res.render 'read', locals: docs[0]
     else
-      res.render 'read', locals: docs[0]
+      next()
 
 # Update
 app.put /^(\/.*)/, (req, res) ->
